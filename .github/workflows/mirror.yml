@@ -1,19 +1,7 @@
-name: Mirror to GitLab
-on: [push, delete, create]
+name: Test forge
+on: workflow_dispatch
 jobs:
-  mirror:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Push to forge IRD
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-        run: |
-          test -n "$GITLAB_TOKEN" || { echo "GITLAB_TOKEN vide"; exit 1; }
-          git remote add gitlab "https://oauth2:${GITLAB_TOKEN}@forge.ird.fr/marbec/moobyf/wp5-label-validator.git"
-          git ls-remote gitlab HEAD
-          git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-          git push --force --prune gitlab \
-            "refs/remotes/origin/*:refs/heads/*" "refs/tags/*:refs/tags/*"
+      - run: curl -sS -m 10 -o /dev/null -w "%{http_code}\n" https://forge.ird.fr
