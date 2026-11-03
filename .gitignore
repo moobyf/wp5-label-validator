@@ -1,0 +1,28 @@
+# Environnements
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Données (non versionnées)
+*.csv
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.zip
+*.log
+crops/
+output/
+sessions/
+*session*.json
+test_annotation/
+
+# Système / IDE / R
+.DS_Store
+.Rhistory
+.idea/
+.vscode/
+
+# Exceptions
+!assets/*.png

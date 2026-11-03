@@ -1,0 +1,10 @@
+.browser-item:hover {
+    border-color: #007bff !important;
+    background-color: #e3f2fd !important;
+}
+button:hover { opacity: 0.9; }
+button:active { transform: scale(0.98); }
+.thumbnail-item:hover {
+    border-color: #007bff !important;
+    background-color: #e3f2fd !important;
+}
